@@ -1,5 +1,5 @@
-\documentclass[10pt]{article}
-\usepackage[left=0.4in,right=0.4in,top=0.7in,bottom=0.4in]{geometry}
+\documentclass[8pt]{article}
+\usepackage[a4paper,left=0.2in,right=0.2in,top=0.7in,bottom=0.2in]{geometry}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage{listings}
@@ -7,6 +7,12 @@
 \usepackage{tocloft}
 \usepackage{pdflscape}
 \usepackage{multicol}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[vietnamese]{babel}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
 \renewcommand*{\ttdefault}{pcr}
 \renewcommand\cftsecfont{\fontsize{8}{9}\bfseries}
@@ -16,32 +22,40 @@
 \renewcommand\cftsecafterpnum{\vspace{-1ex}}
 \renewcommand\cftsubsecafterpnum{\vspace{-1ex}}
 
+\newcommand{\Section}[1]{
+    \section*{#1}
+    \addcontentsline{toc}{subsection}{#1}
+    \vspace{-3mm}
+}
+
+\newcommand{\Topic}[1]{\textbf{#1}}
+
 \lstdefinestyle{shared}{
     belowcaptionskip=1\baselineskip,
     breaklines=true,
     xleftmargin=\parindent,
     showstringspaces=false,
-    basicstyle=\fontsize{5.5}{6}\ttfamily,
+    basicstyle=\fontsize{8}{6}\ttfamily,
 }
 \lstdefinestyle{cpp}{
 	style=shared,
     language=C++,
     keywordstyle=\bfseries\color{green!40!black},
-    commentstyle=\itshape\color{red!80!black},
+    commentstyle=\itshape\color{red!20!black},
     identifierstyle=\color{blue},
     stringstyle=\color{purple!40!black},
 }
-\lstdefinestyle{java}{
+\lstdefinestyle{py}{
     style=shared,
-    language=Java,
+    language=Python,
     keywordstyle=\bfseries\color{green!40!black},
     commentstyle=\itshape\color{purple!40!black},
     identifierstyle=\color{blue},
     stringstyle=\color{orange},
 }
-\lstdefinestyle{py}{
+\lstdefinestyle{java}{
     style=shared,
-    language=Python,
+    language=Java,
     keywordstyle=\bfseries\color{green!40!black},
     commentstyle=\itshape\color{purple!40!black},
     identifierstyle=\color{blue},
@@ -53,32 +67,55 @@
 \lstset{escapechar=@}
 
 \pagestyle{fancy}
-\fancyhead[L]{Stanford University}
+\fancyhead[L]{UIT.Meow - ICPC Asia HCM}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 
 \fancypagestyle{plain}
 {
-\fancyhead[L]{Stanford University}
+\fancyhead[L]{UIT.Meow - ICPC Asia HCM}
 \fancyhead[R]{\thepage}
 \fancyfoot[C]{}
 }
 
-\title{\vspace{-4ex}\Large{Stanford University ICPC Team Notebook (2015-16)}}
+\title{\vspace{-4ex}\Large{UIT.Meow Notebook - ICPC Asia HCM 2022}}
 \author{}
 \date{}
 
 \begin{document}
 \begin{landscape}
-\begin{multicols}{2}
 
+\pagebreak
+\begin{multicols}{2}
 \maketitle
 \vspace{-13ex}
 \tableofcontents
 \pagestyle{fancy}
-
-\input contents.tex
-
+\input meow.tex
 \end{multicols}
+\pagebreak
+
+\begin{multicols}{2}
+\input contents.tex
+\end{multicols}
+
+% \pagebreak
+
+\begin{multicols}{2}
+\input Theory.tex
+\end{multicols}
+
+\pagebreak
+
+% \pagebreak
+
+% \begin{multicols}{2}
+% \input BasicProblem.tex
+% \end{multicols}
+
+% \begin{multicols}{2}
+% \input STL-Cheat-sheet.tex
+% \end{multicols}
+
 \end{landscape}
 \end{document}
